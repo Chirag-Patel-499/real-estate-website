@@ -1880,6 +1880,30 @@ ul.dropdown li:hover {
 	background: #fff;
 	color: #4caf50;
 }
+
+#services-bg{
+  position: relative;
+  overflow: hidden;
+}
+
+#services-bg > .container{
+  position: relative;
+  z-index: 2;
+}
+
+/* VANTA canvas background */
+#services-bg canvas{
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.services .tittle h3{
+  color:#fff;
+}
+
+
 /*=======================================================
 			WELCOME
 ========================================================*/
