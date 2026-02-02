@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / React (future ma kaam aavse)
+node_modules/
+dist/
+build/
+
+# Python / Django (future ready)
+__pycache__/
+*.pyc
+.env
+
+# VS Code
+.vscode/
