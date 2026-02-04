@@ -375,7 +375,62 @@
   </section>
   
   <!--======= PROPERTY =========-->
-  <section class="properties">
+  <section class="properties properties-3d">
+      <!-- 🔵 BUBBLES BACKGROUND -->
+  <div class="bubbles">
+    <!-- 50 bubbles -->
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+  </div>
+  <!-- 🔵 BUBBLES END -->
     <div class="container"> 
       
       <!--======= TITTLE =========-->
@@ -542,6 +597,9 @@
   
   <!--======= TEAM =========-->
   <section id="team">
+      <!-- 🔵 TEAM BACKGROUND PARTICLES -->
+  <div id="team-particles"></div>
+  <!-- 🔵 END -->
     <div class="container"> 
       <!--======= TITTLE =========-->
       <div class="tittle"> <img src="images/head-top.png" alt="">
@@ -651,6 +709,11 @@
   
   <!--======= TESTIMONILAS =========-->
   <section id="testimonials">
+    
+  <!-- 🔵 TESTIMONIALS PARTICLES BG -->
+  <div id="testimonials-particles"></div>
+  <!-- 🔵 END -->
+
     <div class="container"> 
       
       <!--======= TITTLE =========-->
@@ -720,6 +783,10 @@
   
   <!--======= CLIENTS FEEDBACK =========-->
   <section class="blog">
+
+      <!-- 🎨 3D CANVAS BACKGROUND -->
+  <canvas id="blog-canvas"></canvas>
+  <!-- 🎨 END -->
     <div class="container"> 
       
       <!--======= TITTLE =========-->
@@ -938,6 +1005,98 @@ if (window.innerWidth > 768) {
     size: 1.3
   });
 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("team-particles", {
+  fullScreen: { enable: false },
+
+  particles: {
+    number: { value: 20 },
+    opacity: { value: 0.25 },
+    size: { value: { min: 150, max: 300 } },
+    move: { enable: true, speed: 6, direction: "top" },
+    color: { value: ["#5bc0eb", "#9bc53d", "#fde74c"] }
+  },
+
+  style: {
+    filter: "blur(40px)"
+  },
+
+  background: {
+    color: "transparent"
+  }
+});
+  </script>
+
+
+<script>
+tsParticles.load("testimonials-particles", {
+  fullScreen: { enable: false },  // 👈 VERY IMPORTANT
+
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        area: 800
+      }
+    },
+    color: {
+      value: "#ffffff"
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: { min: 10, max: 30 }
+    },
+    move: {
+      enable: true,
+      speed: 2
+    },
+    links: {
+      enable: true,
+      distance: 100,
+      color: "#ffffff",
+      opacity: 0.4
+    }
+  },
+
+  background: {
+    color: "transparent"
+  },
+
+  detectRetina: true
+});
+</script>
+
+<script type="module">
+import { Bokeh1Background } from "https://cdn.jsdelivr.net/npm/threejs-components@0.0.2/build/backgrounds/bokeh1.cdn.min.js";
+
+const canvas = document.getElementById("blog-canvas");
+
+const bg = Bokeh1Background(canvas);
+
+bg.loadMap(
+  "https://cdn.jsdelivr.net/npm/threejs-components@0.0.2/build/assets/bokeh-particles2.png"
+);
+
+bg.setColors([
+  0x4caf50,   // real estate green
+  0x00bcd4,   // cyan
+  0xffffff
+]);
+
+// resize with section
+const resize = () => {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+};
+window.addEventListener("resize", resize);
+resize();
 </script>
 
 
