@@ -1808,6 +1808,51 @@ ul.dropdown li:hover {
 	border-radius: 4px;
 	margin-top: 80px;
 }
+
+/* ===== CALL US 3D SNOW BACKGROUND ===== */
+
+.call-us-3d {
+  position: relative;
+  overflow: hidden;
+}
+
+/* snow layer */
+.call-us-3d .snow-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* content above snow */
+.call-us-3d .overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* snow particle */
+.call-us-3d .snowflake {
+  position: absolute;
+  top: -10px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  animation: fall linear infinite;
+  box-shadow: 0 0 4px rgba(255,255,255,0.6);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) translateX(20px);
+  }
+  100% {
+    transform: translateY(110vh) translateX(40px);
+  }
+}
+
+
 /*=======================================================
 			WHAT WE DO
 ========================================================*/
