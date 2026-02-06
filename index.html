@@ -706,6 +706,54 @@
       </div>
     </div>
   </section>
+
+<!--======= BG VIDEO SECTION =========-->
+<section class="bgvideo">
+
+  <!-- 🎥 3D VIDEO BACKGROUND -->
+  <div class="bgv-stage">
+    <div class="bgv-content">
+
+      <!-- optional image layer -->
+      <img
+        class="bgv-image"
+        src="https://drive.google.com/thumbnail?id=15OERL0IVk9t757DR2Py05y9obsJibQ91&sz=w1000"
+        alt=""
+      >
+
+      <!-- main video -->
+      <div class="bgv-box">
+          <div class="bgv-word-wrap">
+    <p id="bgv-word">Explore</p>
+  </div>
+<iframe
+  class="bgv-video"
+  allow="autoplay; encrypted-media; picture-in-picture"
+  allowfullscreen>
+</iframe>
+
+      </div>
+
+      <!-- blur glow -->
+      <div class="bgv-blur">
+        <iframe class="bgv-video" frameborder="0"></iframe>
+      </div>
+
+      <!-- reflection -->
+<!-- reflection -->
+<div class="bgv-reflect">
+  <iframe class="bgv-video" frameborder="0"></iframe>
+</div>
+
+    </div>
+  </div>
+
+  <!-- DARK OVERLAY -->
+  <div class="bgv-overlay"></div>
+
+
+</section>
+
   
   <!--======= TESTIMONILAS =========-->
   <section id="testimonials">
@@ -1127,6 +1175,87 @@ resize();
 })();
 </script>
 
+<script>
+/* ===== VIDEO SOURCE ===== */
+const bgvVideoURL =
+  "https://www.dailymotion.com/embed/video/x9zae9i" +
+  "?autoplay=1&mute=1&loop=1&controls=0&queue-enable=false" +  "&playlist=x9zae9i";
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".bgv-video").forEach((iframe) => {
+    iframe.src = bgvVideoURL;
+  });
+});
+
+/* ===== WORD ROTATION ===== */
+const words = [
+  "Explore",
+  "Unravel",
+  "Journey",
+  "Beyond",
+  "Glimpse",
+  "Infinite",
+  "Unseen",
+  "Awaken",
+  "Unknown",
+  "Seek",
+  "Curiosity",
+  "Voyage"
+];
+
+let wordIndex = 0;
+let wordsActive = true;
+
+const wordEl = document.getElementById("bgv-word");
+const wordWrap = document.querySelector(".bgv-word-wrap");
+
+function changeWord(){
+  if(!wordEl || !wordsActive) return;
+
+  wordEl.style.opacity = "0";
+
+  setTimeout(() => {
+    if(!wordsActive) return;   // ⛔ hard stop
+    wordEl.textContent = words[wordIndex];
+    wordEl.style.opacity = "1";
+    wordIndex = (wordIndex + 1) % words.length;
+  }, 1000);
+}
+
+/* ✅ STORE INTERVAL */
+const wordInterval = setInterval(changeWord, 5000);
+
+/* ===== ELEMENTS ===== */
+const bgImage = document.querySelector(".bgv-image");
+const reflect = document.querySelector(".bgv-reflect");
+const box = document.querySelector(".bgv-box");
+
+/* ===== TIMELINE ===== */
+
+/* 1️⃣ 60s → video flat / fullscreen */
+setTimeout(() => {
+  if(box) box.classList.add("no-transform");
+
+  /* 🛑 STOP WORDS COMPLETELY */
+  wordsActive = false;
+  clearInterval(wordInterval);
+
+  if(wordWrap){
+    wordWrap.style.display = "none"; // 🔥 force remove
+  }
+
+}, 60000);
+
+/* 2️⃣ 62s → background image fade */
+setTimeout(() => {
+  if(bgImage) bgImage.classList.add("fade-out");
+}, 62000);
+
+/* 3️⃣ 75s → reflection fade */
+setTimeout(() => {
+  if(reflect) reflect.classList.add("fade-out-long");
+}, 75000);
+</script>
 
 </body>
 </html>
